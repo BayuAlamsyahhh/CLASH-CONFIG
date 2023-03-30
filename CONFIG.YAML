@@ -1,0 +1,47 @@
+proxies:
+  - name: WSSG1
+    server: 104.17.3.81
+    port: 443
+    type: vmess
+    uuid: a1e6568d-842a-476c-b9a2-87a229409d18
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: sg-freevmess.privateip.net
+    network: ws
+    ws-opts:
+      path: /freevmess
+      headers:
+        Host: ""
+    udp: true
+  - name: GRPCSG1
+    server: 104.17.3.81
+    port: 443
+    type: vmess
+    uuid: ef616222-4914-433e-9d1c-30d862dd2242
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: xray.vpnstunnel.me
+    network: grpc
+    grpc-opts:
+      grpc-service-name: vmess
+    udp: true
+  - name: WSSG2
+    server: 104.17.3.81
+    port: 443
+    type: vmess
+    uuid: 9a8364d2-36c3-424e-8357-53bf701f019e
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: sg3ray.serverip.my.id
+    network: ws
+    ws-opts:
+      path: /serverssh.net
+      headers:
+        Host: sg3ray.serverip.my.id
+    udp: true
