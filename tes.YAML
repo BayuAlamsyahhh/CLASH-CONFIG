@@ -44,3 +44,56 @@ proxies:
       headers:
         Host: idmws.mainssh.xyz
     udp: true
+  - name: sg8
+    server: 104.17.3.81
+    port: 443
+    type: vmess
+    uuid: 062ffe9a-a1de-4645-aab4-087cb1adad6e
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: sgmgrpc.serverip.my.id
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
+    udp: true
+  - name: indo1mainssh
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: mainssh-bayuuaindo
+    skip-cert-verify: true
+    sni: idtgrpc.mainssh.xyz
+    network: grpc
+    grpc-opts:
+      grpc-service-name: trojangrpc
+    udp: true
+  - name: indo2
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 8ebc6f9a-04d8-45c9-acae-63740bacd9ee
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: vl.id.goserver.pw
+    network: ws
+    ws-opts:
+      path: /xray-vless/ws
+      headers:
+        Host: vl.id.goserver.pw
+    udp: true
+  - name: indo3
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: mainssh-65indoe
+    skip-cert-verify: true
+    sni: idtws.mainssh.xyz
+    network: ws
+    ws-opts:
+      path: /trojan
+      headers:
+        Host: idtws.mainssh.xyz
+    udp: true
