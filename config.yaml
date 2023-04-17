@@ -92,6 +92,8 @@ dns:
   nameserver:
     - 1.1.1.1
     - 8.8.8.8
+    - 104.17.3.81
+    - SELECTOR
     # - tls://1.1.1.1:853 # DNS over TLS
     # - dhcp://rmnet_data+ # dns from dhcp
     # - https://doh.pub/dns-query # DNS over HTTPS
@@ -126,36 +128,43 @@ hosts:
   'ota-cache2.googlezip.net': 127.0.0.1
 proxies:
 proxy-groups:
-  - name: "LLYCORIS"
+  - name: SELECTOR
     type: select
-    use:
-      - provide
-      - tes
     proxies:
-      - FALLBACK
-      - LB
+      - LB SG
+      - LB ID
+      - FB ID
+      - FB SG
       - DIRECT
-  - name: LB
+  - name: LB SG
     type: load-balance
     strategy: round-robin
     disable-udp: false
     use:
-      - provide
-      - tes
-  - name: FALLBACK
+      - SG
+  - name: LB ID
+    type: load-balance
+    strategy: round-robin
+    disable-udp: false
+    use:
+      - ID
+  - name: FB SG
     type: fallback
     url: http://hi.bonds.id/ping
     interval: 99
     use:
-      - provide
-      - tes
+      - SG
+  - name: FB ID
+    type: fallback
+    url: http://hi.bonds.id/ping
+    interval: 99
+    use:
+      - ID
   - name: WA
     type: select
     disable-udp: false
     proxies:
      - DIRECT
-    use:
-     - provide
   - name: TrafficAds
     type: select
     disable-udp: false
@@ -180,26 +189,26 @@ rule-providers:
     path: "./rule_provider/rule_personalads.yaml"
     interval: 86400
 proxy-providers:
-  provide:
+  ID:
     type: file
     path: ./assets/akun.yaml
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
       interval: 99
-  tes:
+  SG:
     type: http
     behavior: domain
-    url: https://raw.githubusercontent.com/BayuAlamsyahhh/CLASH-CONFIG/main/tes.YAML
-    path:  "./main/tes.YAML"
+    url: https://raw.githubusercontent.com/BayuAlamsyahhh/CLASH-CONFIG/main/SG.YAML
+    path:  "./main/SG.YAML"
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
       interval: 99
 rules:
   - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
-  - DOMAIN-SUFFIX,googlesyndication.com,LLYCORIS
+  - DOMAIN-SUFFIX,googlesyndication.com,SELECTOR
   - RULE-SET,rule_personalads,TrafficAds
   - RULE-SET,rule_basicads,TrafficAds
   - RULE-SET,Whatsapp,WA
-  - MATCH,LLYCORIS
+  - MATCH,SELECTOR
