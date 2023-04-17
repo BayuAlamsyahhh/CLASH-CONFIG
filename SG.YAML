@@ -25,7 +25,7 @@ proxies:
       grpc-service-name: grpc
     udp: true
   - name: FREEVMESS-SG 4
-    server: sg-freevmess.privateip.net
+    server: 104.17.3.81
     port: 443
     type: vmess
     uuid: 45a08bf9-13fd-4758-b720-d1913415fa44
@@ -33,12 +33,12 @@ proxies:
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: 104.17.3.81
+    servername: sg-freevmess.privateip.net
     network: ws
     ws-opts:
       path: /freevmess
       headers:
-        Host: 104.17.3.81
+        Host: sg-freevmess.privateip.net
     udp: true
   - name: vpnhack-SG 3
     server: 104.17.3.81
