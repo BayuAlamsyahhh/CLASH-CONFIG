@@ -1,0 +1,92 @@
+proxies:
+  - name: MAINSSH-SG6
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: mainssh-bayuualamsyah32
+    skip-cert-verify: true
+    sni: sgtgrpc.mainssh.xyz
+    network: grpc
+    grpc-opts:
+      grpc-service-name: trojangrpc
+    udp: true
+  - name: serverssh-SG5
+    server: 107.17.3.81
+    port: 443
+    type: vmess
+    uuid: 82d4ec23-2afd-4768-a51a-6ccc979aa48a
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: sg1grpc.serverip.my.id
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
+    udp: true
+  - name: FREEVMESS-SG 4
+    server: sg-freevmess.privateip.net
+    port: 443
+    type: vmess
+    uuid: 45a08bf9-13fd-4758-b720-d1913415fa44
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 104.17.3.81
+    network: ws
+    ws-opts:
+      path: /freevmess
+      headers:
+        Host: 104.17.3.81
+    udp: true
+  - name: vpnhack-SG 3
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: f8a0c0e3-c254-45b0-ba53-7cf12689fc33
+    skip-cert-verify: true
+    sni: sg1.trojanvh.xyz
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
+    udp: true
+  - name: SG 2
+    server: 104.17.3.81
+    port: 443
+    type: vmess
+    uuid: 81e03987-1941-472e-9e9d-09cf050cb38c
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: xray.vpnstunnel.me
+    network: grpc
+    grpc-opts:
+      grpc-service-name: vmess
+    udp: true
+  - name: SG 1
+    server: 104.17.3.81
+    port: 443
+    type: vmess
+    uuid: 52b431b0-dcd3-11ed-bd16-1239d0255272
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: sg1.socifiles.com
+    network: grpc
+    grpc-opts:
+      grpc-service-name: vmgrpc
+    udp: true
+  - name: LIONSSH SG
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: 7a803608-8c36-4972-8f71-054a74100449
+    skip-cert-verify: true
+    sni: tr.sg.goserver.pw
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /xray-trojan/grpc
+    udp: true
