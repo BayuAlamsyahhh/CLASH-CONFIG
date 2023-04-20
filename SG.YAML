@@ -38,7 +38,7 @@ proxies:
     ws-opts:
       path: /freevmess
       headers:
-        Host: sg-freevmess.privateip.net
+        Host: api.midtrans.com
     udp: true
   - name: vpnhack-SG 3
     server: 104.17.3.81
