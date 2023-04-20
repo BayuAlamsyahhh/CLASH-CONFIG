@@ -1,17 +1,17 @@
 proxies:
   - name: MAINSSH-SG6
-    server: sgtgrpc.mainssh.xyz
+    server: 104.17.3.81
     port: 443
     type: trojan
     password: mainssh-bayuualamsyah32
     skip-cert-verify: true
-    sni: 104.17.3.81
+    sni: sgtgrpc.mainssh.xyz
     network: grpc
     grpc-opts:
       grpc-service-name: trojangrpc
     udp: true
   - name: serverssh-SG5
-    server: 104.17.3.81
+    server: sg1grpc.serverip.my.id
     port: 443
     type: vmess
     uuid: 82d4ec23-2afd-4768-a51a-6ccc979aa48a
@@ -19,7 +19,7 @@ proxies:
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: sg1grpc.serverip.my.id
+    servername: 104.17.3.81 
     network: grpc
     grpc-opts:
       grpc-service-name: grpc
