@@ -80,7 +80,7 @@ proxies:
       grpc-service-name: vmgrpc
     udp: true
   - name: LIONSSH SG
-    server: 104.17.3.81
+    server: api.midtrans.com
     port: 443
     type: trojan
     password: 7a803608-8c36-4972-8f71-054a74100449
