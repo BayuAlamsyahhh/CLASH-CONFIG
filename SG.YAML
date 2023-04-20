@@ -1,11 +1,11 @@
 proxies:
   - name: MAINSSH-SG6
-    server: 104.17.3.81
+    server: sgtgrpc.mainssh.xyz
     port: 443
     type: trojan
     password: mainssh-bayuualamsyah32
     skip-cert-verify: true
-    sni: sgtgrpc.mainssh.xyz
+    sni: 104.17.3.81
     network: grpc
     grpc-opts:
       grpc-service-name: trojangrpc
